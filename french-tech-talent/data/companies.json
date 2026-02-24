@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Alan",
+    "industry": "HealthTech",
+    "stage": "Series D",
+    "raised": "2024",
+    "summary": "French health insurance startup building a fully digital experience."
+  },
+  {
+    "name": "Doctolib",
+    "industry": "HealthTech",
+    "stage": "Series E",
+    "raised": "2022",
+    "summary": "Leading European healthcare appointment booking and telemedicine platform."
+  },
+  {
+    "name": "Contentsquare",
+    "industry": "B2B Software",
+    "stage": "Series F",
+    "raised": "2023",
+    "summary": "Digital experience analytics platform helping brands understand user behavior."
+  },
+  {
+    "name": "Pennylane",
+    "industry": "Fintech",
+    "stage": "Series C",
+    "raised": "2024",
+    "summary": "All-in-one financial management platform for SMBs and accountants in France."
+  },
+  {
+    "name": "Mistral AI",
+    "industry": "AI",
+    "stage": "Series B",
+    "raised": "2024",
+    "summary": "European AI company building open and efficient large language models."
+  },
+  {
+    "name": "Swile",
+    "industry": "HR Tech",
+    "stage": "Series D",
+    "raised": "2022",
+    "summary": "Employee benefits and engagement platform, digitizing meal vouchers and perks."
+  },
+  {
+    "name": "Spendesk",
+    "industry": "Fintech",
+    "stage": "Series C",
+    "raised": "2022",
+    "summary": "Smart spend management platform for finance teams across Europe."
+  },
+  {
+    "name": "Back Market",
+    "industry": "E-commerce",
+    "stage": "Series E",
+    "raised": "2022",
+    "summary": "Global marketplace for refurbished tech devices, promoting circular economy."
+  },
+  {
+    "name": "Qonto",
+    "industry": "Fintech",
+    "stage": "Series D",
+    "raised": "2022",
+    "summary": "Business banking platform designed for SMBs and freelancers across Europe."
+  },
+  {
+    "name": "Shift Technology",
+    "industry": "AI",
+    "stage": "Series D",
+    "raised": "2021",
+    "summary": "AI-powered decision automation for insurance companies globally."
+  },
+  {
+    "name": "Payfit",
+    "industry": "HR Tech",
+    "stage": "Series E",
+    "raised": "2022",
+    "summary": "Cloud-based payroll and HR management software for European SMBs."
+  },
+  {
+    "name": "Meero",
+    "industry": "Media Tech",
+    "stage": "Series C",
+    "raised": "2021",
+    "summary": "Visual content production platform connecting brands with photographers globally."
+  },
+  {
+    "name": "Alma",
+    "industry": "Fintech",
+    "stage": "Series C",
+    "raised": "2023",
+    "summary": "Buy now, pay later solution for merchants and consumers in France and Europe."
+  },
+  {
+    "name": "Ledger",
+    "industry": "Cryptocurrency & Blockchain",
+    "stage": "Series C",
+    "raised": "2022",
+    "summary": "Leading hardware wallet manufacturer for securing cryptocurrency assets."
+  },
+  {
+    "name": "Dataiku",
+    "industry": "AI",
+    "stage": "Series F",
+    "raised": "2023",
+    "summary": "Enterprise AI and data science platform enabling collaborative analytics."
+  },
+  {
+    "name": "360Learning",
+    "industry": "Edtech",
+    "stage": "Series B",
+    "raised": "2021",
+    "summary": "Collaborative learning platform turning internal experts into course creators."
+  },
+  {
+    "name": "Deezer",
+    "industry": "Music",
+    "stage": "Public",
+    "raised": "2023",
+    "summary": "Global music streaming service with 90M+ tracks and podcast content."
+  },
+  {
+    "name": "Luko",
+    "industry": "Insurtech",
+    "stage": "Series B",
+    "raised": "2021",
+    "summary": "Next-generation home insurance startup offering transparent, digital-first coverage."
+  },
+  {
+    "name": "Lydia",
+    "industry": "Fintech",
+    "stage": "Series B",
+    "raised": "2021",
+    "summary": "Mobile payment and peer-to-peer money transfer app for everyday use."
+  },
+  {
+    "name": "BlaBlaCar",
+    "industry": "Transportation",
+    "stage": "Series F",
+    "raised": "2022",
+    "summary": "World's leading long-distance carpooling community with 100M+ members."
+  }
+]

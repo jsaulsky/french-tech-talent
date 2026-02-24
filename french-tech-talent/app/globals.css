@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: #FFFBF2;
+  --text: #2E3A44;
+  --cta: #192733;
+  --surface: rgba(25, 39, 51, 0.1);
+  --border: rgba(46, 58, 68, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FFFBF2;
+  color: #2E3A44;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+}
+
+input, textarea, select {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}

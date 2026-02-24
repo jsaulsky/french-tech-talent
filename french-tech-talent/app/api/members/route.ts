@@ -30,6 +30,8 @@ export async function GET(req: NextRequest) {
       linkedinUrl: r.fields["LinkedIn URL"] || "",
       currentRole: r.fields["Current Role"] || "",
       roleTypes: r.fields["Role Types"] || [],
+      jobTitles: r.fields["Job Titles"] || [],
+      seniority: r.fields["Seniority"] || [],
       industries: r.fields["Industries"] || [],
       companySizes: r.fields["Company Size"] || [],
       lookingFor: r.fields["Looking For"] || "",

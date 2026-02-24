@@ -33,10 +33,12 @@ export async function POST(req: NextRequest) {
     }
 
     const membersContext = JSON.stringify(
-      members.map((m: { fullName: string; currentRole: string; roleTypes: string[]; industries: string[]; companySizes: string[]; lookingFor: string }) => ({
+      members.map((m: { fullName: string; currentRole: string; roleTypes: string[]; jobTitles: string[]; seniority: string[]; industries: string[]; companySizes: string[]; lookingFor: string }) => ({
         name: m.fullName,
         currentRole: m.currentRole,
         roleTypes: m.roleTypes,
+        jobTitles: m.jobTitles,
+        seniority: m.seniority,
         industries: m.industries,
         companySizes: m.companySizes,
         lookingFor: m.lookingFor,
@@ -61,13 +63,14 @@ ${JSON.stringify(companiesDb)}
 </companies>
 
 MATCHING RULES — follow strictly:
-1. FUNCTION-FIRST: The job function must match the candidate's role type list. A Marketing Manager is not a match for a Product role. A Software Engineer is not a match for a Sales role.
-2. NO STRETCH ROLES: Only include candidates whose current role or stated roleTypes directly overlap with the job. Do not include "could learn" or "has adjacent experience" unless they explicitly listed that role type.
-3. TWO-DIMENSION SCORING — rate both separately:
-   - function_fit: how well the job function matches their role type ("High" | "Medium" | "Low")
+1. FUNCTION-FIRST: The job function must match the candidate's roleTypes OR jobTitles list. Use jobTitles as the primary signal — if they listed specific titles, those take priority. A Marketing Manager is not a match for a Product role. A Software Engineer is not a match for a Sales role.
+2. NO STRETCH ROLES: Only include candidates whose current role, roleTypes, or jobTitles directly overlap with the job. Do not include "could learn" or "has adjacent experience" unless they explicitly listed that role type or title.
+3. SENIORITY: If the candidate listed seniority levels, only match jobs that correspond to those levels. A candidate seeking "Junior (1–3 years)" roles should not be matched to a VP or Director-level job, and vice versa.
+4. TWO-DIMENSION SCORING — rate both separately:
+   - function_fit: how well the job function matches their roleTypes/jobTitles ("High" | "Medium" | "Low")
    - industry_fit: how well the company's industry matches their stated industries ("High" | "Medium" | "Low")
    - Only include matches where BOTH function_fit AND industry_fit are "Medium" or "High"
-4. DISQUALIFY if: the candidate is overqualified by 2+ levels, the industry is entirely outside their listed interests, or the company size is incompatible with their stated companySizes preference.
+5. DISQUALIFY if: the candidate is overqualified by 2+ levels, the industry is entirely outside their listed interests, or the company size is incompatible with their stated companySizes preference.
 
 For each INCLUDED match provide:
 - jobId: the job's id field

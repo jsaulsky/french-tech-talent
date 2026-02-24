@@ -13,6 +13,8 @@ interface Member {
   linkedinUrl: string;
   currentRole: string;
   roleTypes: string[];
+  jobTitles: string[];
+  seniority: string[];
   industries: string[];
   companySizes: string[];
   lookingFor: string;

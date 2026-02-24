@@ -98,7 +98,7 @@ function SingleDraftCard({ card, isActive, isSent, onActivate, onUpdate, session
         method: "POST",
         headers: { "Content-Type": "application/json", "x-admin-token": sessionToken },
         body: JSON.stringify({
-          candidate: { name: card.match.candidateName, currentRole: card.match.candidateRole, lookingFor: card.member?.lookingFor, roleTypes: card.member?.roleTypes, industries: card.member?.industries },
+          candidate: { name: card.match.candidateName, currentRole: card.match.candidateRole, lookingFor: card.member?.lookingFor, roleTypes: card.member?.roleTypes, jobTitles: card.member?.jobTitles, seniority: card.member?.seniority, industries: card.member?.industries },
           job: card.job, enrichment: card.enrichment, matchReason: card.match.reason,
         }),
       });
@@ -201,7 +201,7 @@ function MultiDraftCard({ draft, isActive, isSent, onActivate, onUpdate, session
         method: "POST",
         headers: { "Content-Type": "application/json", "x-admin-token": sessionToken },
         body: JSON.stringify({
-          candidate: { name: draft.candidateName, currentRole: draft.candidateRole, lookingFor: draft.member?.lookingFor, roleTypes: draft.member?.roleTypes, industries: draft.member?.industries },
+          candidate: { name: draft.candidateName, currentRole: draft.candidateRole, lookingFor: draft.member?.lookingFor, roleTypes: draft.member?.roleTypes, jobTitles: draft.member?.jobTitles, seniority: draft.member?.seniority, industries: draft.member?.industries },
           jobs: draft.cards.map((c) => c.job),
           enrichments: draft.cards.map((c) => c.enrichment || null),
           matchReasons: draft.cards.map((c) => c.match.reason),

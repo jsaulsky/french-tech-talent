@@ -15,6 +15,47 @@ const ROLE_TYPES = [
   "Other",
 ];
 
+const JOB_TITLES = [
+  "Product Manager",
+  "Senior Product Manager",
+  "Product Marketing Manager",
+  "Marketing Manager",
+  "Growth Manager",
+  "Brand Manager",
+  "Strategy Manager",
+  "Finance Manager",
+  "Financial Analyst",
+  "Project Manager",
+  "Operations Manager",
+  "Business Development Manager",
+  "Sales Manager",
+  "Account Executive",
+  "SDR / BDR",
+  "Customer Success Manager",
+  "Customer Care Manager",
+  "Founder's Associate",
+  "Chief of Staff",
+  "Venture Investor / VC Analyst",
+  "Data Analyst",
+  "Data Scientist",
+  "Software Engineer",
+  "UX / Product Designer",
+  "Graphic Designer",
+  "Copywriter / Content Writer",
+  "Communications / PR Manager",
+  "HR / People Manager",
+  "Legal Counsel",
+  "Other",
+];
+
+const SENIORITY_LEVELS = [
+  "Internship",
+  "Junior (1–3 years)",
+  "Mid-Level (4–6 years)",
+  "Experienced (7–10 years)",
+  "Senior (10+ years)",
+];
+
 const COMPANY_SIZES = ["1–10", "11–50", "51–200", "201–500", "500+"];
 
 const INDUSTRIES = [
@@ -145,6 +186,8 @@ export default function Home() {
     lookingFor: "",
   });
   const [roleTypes, setRoleTypes] = useState<string[]>([]);
+  const [jobTitles, setJobTitles] = useState<string[]>([]);
+  const [seniority, setSeniority] = useState<string[]>([]);
   const [industries, setIndustries] = useState<string[]>([]);
   const [companySizes, setCompanySizes] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
@@ -187,7 +230,7 @@ export default function Home() {
       const res = await fetch("/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, roleTypes, industries, companySizes }),
+        body: JSON.stringify({ ...form, roleTypes, jobTitles, seniority, industries, companySizes }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -408,6 +451,38 @@ export default function Home() {
                   label={role}
                   selected={roleTypes.includes(role)}
                   onClick={() => toggleItem(role, roleTypes, setRoleTypes)}
+                />
+              ))}
+            </div>
+          </section>
+
+          {/* Job Titles */}
+          <section style={{ marginBottom: "36px" }}>
+            <h2 style={sectionHeadStyle}>Job titles that interest you</h2>
+            <p style={subLabelStyle}>Select all that apply</p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+              {JOB_TITLES.map((title) => (
+                <Chip
+                  key={title}
+                  label={title}
+                  selected={jobTitles.includes(title)}
+                  onClick={() => toggleItem(title, jobTitles, setJobTitles)}
+                />
+              ))}
+            </div>
+          </section>
+
+          {/* Seniority */}
+          <section style={{ marginBottom: "36px" }}>
+            <h2 style={sectionHeadStyle}>Seniority level</h2>
+            <p style={subLabelStyle}>Select all levels you'd consider</p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+              {SENIORITY_LEVELS.map((level) => (
+                <Chip
+                  key={level}
+                  label={level}
+                  selected={seniority.includes(level)}
+                  onClick={() => toggleItem(level, seniority, setSeniority)}
                 />
               ))}
             </div>

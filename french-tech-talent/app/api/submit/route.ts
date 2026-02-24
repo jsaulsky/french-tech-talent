@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { fullName, email, linkedinUrl, currentRole, roleTypes, industries, companySizes, lookingFor } = body;
+    const { fullName, email, linkedinUrl, currentRole, roleTypes, jobTitles, seniority, industries, companySizes, lookingFor } = body;
 
     if (!fullName || !email || !linkedinUrl || !currentRole) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -59,6 +59,8 @@ export async function POST(req: NextRequest) {
           "LinkedIn URL": linkedinUrl,
           "Current Role": currentRole,
           "Role Types": roleTypes || [],
+          "Job Titles": jobTitles || [],
+          "Seniority": seniority || [],
           Industries: industries || [],
           "Company Size": companySizes || [],
           "Looking For": lookingFor || "",

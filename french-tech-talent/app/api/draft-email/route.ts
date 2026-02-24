@@ -54,14 +54,14 @@ Roles to share:
 ${jobsList}
 
 Write the email following this structure:
-1. Warm opener using their first name — acknowledge their current role (1-2 sentences)
-2. "I came across a few roles I think could be interesting for you" framing (1 sentence)
-3. For each role: a short paragraph — what it is, why it fits them, key context (2-3 sentences each). ALWAYS include: the company's last funding round and date if available (e.g. "They raised €X in [month year]"). If a role has a language note (⚠️ French required), mention it naturally (e.g. "Worth noting this role is French-speaking"). End each role's paragraph with the apply link on its own line — use the URL if provided, otherwise write [INSERT APPLY LINK].
-4. Brief closing — encourage them to reach out if any catch their eye
-5. Warm personal sign-off
+1. Open with "Hey [first name]," then a single casual line — a natural variation of something like "here are a few roles I came across that could be worth a look" or "found some openings in France I think could interest you". Keep it short and informal, no more than one sentence.
+2. For each role: a short paragraph — what it is, why it fits them, key context (2-3 sentences each). ALWAYS include: the company's last funding round and date if available (e.g. "They raised €X in [month year]"). If a role has a language note (⚠️ French required), mention it naturally (e.g. "Worth noting this role is French-speaking"). End each role's paragraph with the apply link on its own line — use the URL if provided, otherwise write [INSERT APPLY LINK].
+3. One-line closing — encourage them to reach out if any catch their eye
+4. Sign off
 
-Keep it under 400 words. No subject line. Start directly with the opener.
+Keep it under 350 words. No subject line. Start directly with "Hey [first name],".
 Sign off as: "James"
+Do not use any markdown formatting — no asterisks, no bold, no bullet points, no headers. Plain text only.
 
 Return ONLY the email text, no extra commentary.`;
 
@@ -114,16 +114,16 @@ Match reason: ${matchReason || "Strong profile alignment"}
 ${enrichmentContext}
 
 Write the email following this structure:
-1. Warm opener using their first name + acknowledging their current role (1-2 sentences)
-2. "I came across a role I think could be interesting for you" framing (1 sentence)
-3. Job summary — what it is, where, how they work (2-3 lines, no buzzwords)
-4. Why it matches their stated interests (2-3 sentences, specific)
-5. Company context using enrichment if available — ALWAYS mention the company's last funding round and date if known (e.g. "They raised €X in [month year]"). Include Glassdoor/salary signal if meaningful. If French language is required ("yes"), mention it naturally (e.g. "Worth noting this role is French-speaking").
-6. Apply link on its own line — use the URL if provided, otherwise write [INSERT APPLY LINK]
-7. Personal sign-off
+1. Open with "Hey [first name]," then a single casual line — a natural variation of something like "came across this one and thought of you" or "saw this and figured it could be worth a look". One sentence only, informal.
+2. Job summary — what it is, where, how they work (2-3 lines, no buzzwords)
+3. Why it matches their stated interests (2-3 sentences, specific)
+4. Company context using enrichment if available — ALWAYS mention the company's last funding round and date if known (e.g. "They raised €X in [month year]"). Include Glassdoor/salary signal if meaningful. If French language is required ("yes"), mention it naturally (e.g. "Worth noting this role is French-speaking").
+5. Apply link on its own line — use the URL if provided, otherwise write [INSERT APPLY LINK]
+6. Sign off
 
-Under 280 words. No subject line. Start directly with the opener.
+Under 250 words. No subject line. Start directly with "Hey [first name],".
 Sign off as: "James"
+Do not use any markdown formatting — no asterisks, no bold, no bullet points, no headers. Plain text only.
 
 Return ONLY the email text, no extra commentary.`;
 

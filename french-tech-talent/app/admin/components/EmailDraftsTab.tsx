@@ -313,10 +313,16 @@ export default function EmailDraftsTab({ matchCards, multiDrafts, initialTarget,
   const toggle = (key: string) => setActiveKey((prev) => prev === key ? null : key);
 
   // Partition: deleted, sent, active
-  const activeCards = matchCards.filter((c) => !c.deleted && !c.sentAt);
   const activeMulti = multiDrafts.filter((d) => !d.deleted && !d.sentAt);
-  const sentCards = matchCards.filter((c) => !c.deleted && c.sentAt);
   const sentMulti = multiDrafts.filter((d) => !d.deleted && d.sentAt);
+
+  // Exclude matchCards already absorbed into a multiDraft
+  const multiDraftJobKeys = new Set<string>();
+  [...activeMulti, ...sentMulti].forEach((d) =>
+    d.cards.forEach((c) => multiDraftJobKeys.add(`${c.match.candidateName}__${c.job?.id}`))
+  );
+  const activeCards = matchCards.filter((c) => !c.deleted && !c.sentAt && !multiDraftJobKeys.has(`${c.match.candidateName}__${c.job?.id}`));
+  const sentCards = matchCards.filter((c) => !c.deleted && c.sentAt && !multiDraftJobKeys.has(`${c.match.candidateName}__${c.job?.id}`));
 
   const totalActive = activeCards.length + activeMulti.length;
   const totalSent = sentCards.length + sentMulti.length;

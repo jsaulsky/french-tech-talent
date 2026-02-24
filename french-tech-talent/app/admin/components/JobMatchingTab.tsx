@@ -480,19 +480,27 @@ export default function JobMatchingTab({ matchCards, setMatchCards, onUpdateCard
       {matchCards.length > 0 && (
         <div>
           {/* Results header */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "24px", paddingBottom: "12px", borderBottom: "1px solid rgba(46,58,68,0.1)" }}>
-            <h3 style={{ fontFamily: "Trebuchet MS, sans-serif", fontSize: "15px", fontWeight: 700, color: "#192733" }}>
-              {matchCards.length} match{matchCards.length !== 1 ? "es" : ""} · {candidateGroups.length} candidate{candidateGroups.length !== 1 ? "s" : ""}
-            </h3>
-            {candidateGroups.length > 0 && (
-              <button
-                onClick={handleDraftAllSelected}
-                style={{ backgroundColor: "#192733", color: "#FFFBF2", border: "none", borderRadius: "8px", padding: "10px 18px", fontSize: "13px", fontWeight: 600, cursor: "pointer", fontFamily: "'IBM Plex Sans', system-ui, sans-serif" }}
-              >
-                Draft {candidateGroups.length} email{candidateGroups.length !== 1 ? "s" : ""} →
-              </button>
-            )}
-          </div>
+          {(() => {
+            const candidatesWithSelections = candidateGroups.filter(({ name, cards }) =>
+              cards.some((c) => isJobSelected(name, c.job?.id))
+            ).length;
+            return (
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "24px", paddingBottom: "12px", borderBottom: "1px solid rgba(46,58,68,0.1)" }}>
+                <h3 style={{ fontFamily: "Trebuchet MS, sans-serif", fontSize: "15px", fontWeight: 700, color: "#192733" }}>
+                  {matchCards.length} match{matchCards.length !== 1 ? "es" : ""} · {candidateGroups.length} candidate{candidateGroups.length !== 1 ? "s" : ""}
+                </h3>
+                <button
+                  onClick={handleDraftAllSelected}
+                  disabled={candidatesWithSelections === 0}
+                  style={{ backgroundColor: candidatesWithSelections === 0 ? "rgba(25,39,51,0.35)" : "#192733", color: "#FFFBF2", border: "none", borderRadius: "8px", padding: "10px 18px", fontSize: "13px", fontWeight: 600, cursor: candidatesWithSelections === 0 ? "not-allowed" : "pointer", fontFamily: "'IBM Plex Sans', system-ui, sans-serif" }}
+                >
+                  {candidatesWithSelections === 0
+                    ? "Select jobs to draft"
+                    : `Draft ${candidatesWithSelections} email${candidatesWithSelections !== 1 ? "s" : ""} →`}
+                </button>
+              </div>
+            );
+          })()}
 
           {/* One section per candidate */}
           {candidateGroups.map(({ name, cards }, groupIdx) => {
